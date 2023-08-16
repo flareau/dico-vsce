@@ -4,6 +4,7 @@
 	"patterns": [
 		{"include": "#keywords"},
 		{"include": "#strings"},
+		{"include": "#variables"},
 		{"include": "#comments"}
 	],
 	"repository": {
@@ -11,7 +12,11 @@
 			"patterns": [
 				{
 					"name": "comment.line.double-slash.dico",
-					"match": "//.*$"
+					"match": "#.*$"
+				},
+				{
+					"name": "comment.block.source.dico",
+					"match": "(?<=\"\\s*)\\(\\s*(https?://.+?|inventé)\\s*\\)"
 				},
 				{
 					"name": "invalid.illegal.feedback.dico",
@@ -26,18 +31,50 @@
 				"match": "\\b(DEF|SEM|TR|FL|EX)\\b"
 			},
 			{
-				"name": "storage.type.dico",
-				"match": "\\b\\d+.\\b"
+				"name": "keyword.control.dico",
+				"match": "(@|&)"
+			},
+			{
+				"name": "keyword.control.dico",
+				"match": "\\.\\d+\\b"
+			},
+			{
+				"name": "storage.class.dico",
+				"match": "^\\d+\\."
 			}]
 		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.parameter.dico",
+					"match": "\\b(U|V|W|X|Y|Z)\\d?\\b"
+				},
+				{
+					"name": "variable.parameter.dico",
+					"match": "(?<=\\([^\\(\\)]*)\\b\\w+\\b(?=[^\\(\\)]*\\))"
+				},
+				{
+					"name": "variable.parameter.dico",
+					"match": "\\b\\w+:"
+				},
+				{
+					"name": "constant.language.pos.dico",
+					"match": "\\b(N|V|A|Adv|Prép|Pro|Art|ART)\\b"
+				}
+			]
+		},
 		"strings": {
-			"name": "string.quoted.double.dico",
+			"name": "string.quoted.double.example.dico",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
 					"name": "constant.character.escape.dico",
 					"match": "\\\\."
+				},
+				{
+					"name": "constant.character.source.dico",
+					"match": "\\|"
 				}
 			]
 		}
