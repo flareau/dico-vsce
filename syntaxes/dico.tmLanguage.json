@@ -1,0 +1,46 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Dico",
+	"patterns": [
+		{"include": "#keywords"},
+		{"include": "#strings"},
+		{"include": "#comments"}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.dico",
+					"match": "//.*$"
+				},
+				{
+					"name": "invalid.illegal.feedback.dico",
+					"match": "\\^.*$"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+			{
+				"name": "keyword.control.dico",
+				"match": "\\b(DEF|SEM|TR|FL|EX)\\b"
+			},
+			{
+				"name": "storage.type.dico",
+				"match": "\\b\\d+.\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.dico",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dico",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "text.dico"
+}

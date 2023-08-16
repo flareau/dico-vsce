@@ -1,0 +1,25 @@
+{
+  "name": "dico",
+  "displayName": "dico",
+  "description": "Fiches lexicographiques (dico)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "dico",
+      "aliases": ["Dico", "dico"],
+      "extensions": [".dico"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "dico",
+      "scopeName": "text.dico",
+      "path": "./syntaxes/dico.tmLanguage.json"
+    }]
+  }
+}
