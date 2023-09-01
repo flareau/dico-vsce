@@ -1,4 +1,4 @@
 # dico README
 
-This extension provides basic syntax highlighting for the DICO format.
+This VS Code extension provides basic syntax highlighting for the DICO format.
 
