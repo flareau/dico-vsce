@@ -41,13 +41,17 @@
 			{
 				"name": "storage.class.dico",
 				"match": "^\\d+\\."
+			},
+			{
+				"name": "keyword.control.dico",
+				"match": "\\b_(v|n|adj|adv|prép|pro|dét)\\b"
 			}]
 		},
 		"variables": {
 			"patterns": [
 				{
 					"name": "variable.parameter.dico",
-					"match": "\\b(U|V|W|X|Y|Z)\\d?\\b"
+					"match": "\\b(U|V|W|X|Y|Z)\\[1-9]?\\b"
 				},
 				{
 					"name": "variable.parameter.dico",
