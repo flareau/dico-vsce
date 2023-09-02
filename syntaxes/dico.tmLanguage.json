@@ -2,13 +2,17 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Dico",
 	"patterns": [
+		{"include": "#comments"},
 		{"include": "#keywords"},
+		{"include": "#headword"},
+		{"include": "#pos"},
+		{"include": "#grammemes"},
 		{"include": "#examples"},
 		{"include": "#sources"},
-		{"include": "#variables"},
-		{"include": "#functions"},
-		{"include": "#headword"},
-		{"include": "#comments"}
+		{"include": "#actants"},
+		{"include": "#parameters"},
+		{"include": "#aliases"},
+		{"include": "#functions"}
 	],
 	"repository": {
 		"comments": {
@@ -23,18 +27,10 @@
 				}
 			]
 		},
-		"headword": {
-			"patterns": [
-				{
-					"name": "markup.bold.headword.dico",
-					"match": "^\\w+\\s*/[\\w\\.~]+/\\s*$"
-				}
-			]
-		},
 		"keywords": {
 			"patterns": [
 				{
-					"name": "markup.heading.1.dico",
+					"name": "markup.heading.1.lex.dico",
 					"match": "^\\d+\\."
 				},
 				{
@@ -59,39 +55,79 @@
 				},
 				{
 					"name": "entity.name.type.dico",
-					"match": "(?<=\\w)_(V|N|Adj|Adv|Prép|Pro|Dét)"
-				},
-				{
-					"name": "entity.name.type.dico",
-					"match": "(?<=(V|~))\\.(ind|subj|inf|pp|pprés)?=\\b"
-				},
-				{
-					"name": "entity.name.type.dico",
-					"match": "(?<=(N|~))(\\.(déf|indéf|ø))?(\\.(sg|pl))?\\b"
-				},
-				{
-					"name": "entity.name.type.dico",
 					"match": "(?<=\\w)_\\d+\\b"
 				}
 			]
 		},
-		"variables": {
+		"headword": {
 			"patterns": [
 				{
-					"name": "variable.language.dico",
-					"match": "(?<!/\\s*)\\b(X|Y|Z|A|B|C)[1-9]?\\b(?!\\s*/)"
-				},
+					"name": "markup.bold.headword.dico",
+					"match": "^\\w+\\s*/[\\w\\.~]+/\\s*$"
+				}
+			]
+		},
+		"pos": {
+			"patterns": [
 				{
-					"name": "variable.parameter.dico",
-					"match": "(?<=\\([^\\(\\)]*)\\b\\w+\\b(?=[^\\(\\)]*\\))"
-				},
-				{
-					"name": "variable.parameter.dico",
-					"match": "\\b\\w+:(?=\\w)"
+					"name": "entity.name.type.dico",
+					"match": "(?<=\\w)_(V|N|Adj|Adv|Prép|Pro|Dét)"
 				},
 				{
 					"name": "entity.name.type.dico",
 					"match": "\\b(N|V|Adj|Adv|Prép|Pro|Dét)\\b"
+				}
+			]
+		},
+		"grammemes": {
+			"patterns": [
+				{
+					"name": "entity.name.type.dico",
+					"match": "(?<=\\b(V|~))\\.(ind|subj|inf|pp|pprés)\\b"
+				},
+				{
+					"name": "entity.name.type.dico",
+					"match": "(?<=\\b(N|~))\\.(déf|indéf|ø)\\b"
+				},
+				{
+					"name": "entity.name.type.dico",
+					"match": "(?<=\\b(N|~))\\.(sg|pl)\\b"
+				},
+				{
+					"name": "entity.name.type.dico",
+					"match": "(?<=\\b(N|~))\\.(déf|indéf|ø)\\.(sg|pl)\\b"
+				}
+			]
+		},
+		"actants": {
+			"patterns": [
+				{
+					"name": "variable.language.actant.dico",
+					"match": "(?<!/\\s*)\\b(X|Y|Z|A|B|C)[1-9]?\\b(?!\\s*/)"
+				}
+			]
+		},
+		"parameters": {
+			"name": "markup.italic.source.dico",
+			"begin": "(?<=\\w)\\(",
+			"end": "\\)",
+			"patterns": [
+				{"include": "#actants"},
+				{
+					"name": "variable.parameter.dico",
+					"match": "\\b\\w+\\b"
+				},
+				{
+					"name": "variable.parameter.dico",
+					"match": "\\b\\w+:(?=\\w)"
+				}
+			]
+		},
+		"aliases": {
+			"patterns": [
+				{
+					"name": "variable.parameter.dico",
+					"match": "\\b\\w+:(?=\\w)"
 				}
 			]
 		},
@@ -108,7 +144,7 @@
 		},
 		"sources": {
 			"name": "markup.italic.source.dico",
-			"begin": "\\(",
+			"begin": "(?<=\"\\s*)\\(",
 			"end": "\\)",
 			"patterns": [
 				{
@@ -117,11 +153,11 @@
 				},
 				{
 					"name": "comment.block.source.invented.dico",
-					"match": "(?<=\\()inventé(?=\\))"
+					"match": "inventé"
 				},
 				{
 					"name": "comment.block.source.url.dico",
-					"match": "(?<=\\()https?://[^\\s]+(?=\\))"
+					"match": "(?<=\\(\\s*)https?://[^\\s]+(?=\\s*\\))"
 				}
 			]
 		},
