@@ -3,11 +3,11 @@
 	"name": "Dico",
 	"patterns": [
 		{"include": "#keywords"},
-		{"include": "#strings"},
+		{"include": "#examples"},
+		{"include": "#sources"},
 		{"include": "#variables"},
 		{"include": "#functions"},
 		{"include": "#headword"},
-		{"include": "#styles"},
 		{"include": "#comments"}
 	],
 	"repository": {
@@ -16,10 +16,6 @@
 				{
 					"name": "comment.line.dico",
 					"match": "%.*$"
-				},
-				{
-					"name": "comment.block.source.dico",
-					"match": "(?<=\"\\s*)\\(\\s*(https?://.+?|inventé)\\s*\\)"
 				},
 				{
 					"name": "invalid.illegal.feedback.dico",
@@ -99,14 +95,33 @@
 				}
 			]
 		},
-		"strings": {
-			"name": "string.quoted.double.example.dico",
+		"examples": {
+			"name": "string.quoted.double",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
 					"name": "constant.character.escape.dico",
 					"match": "\\\\."
+				}
+			]
+		},
+		"sources": {
+			"name": "markup.italic.source.dico",
+			"begin": "\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dico",
+					"match": "\\\\."
+				},
+				{
+					"name": "comment.block.source.invented.dico",
+					"match": "(?<=\\()inventé(?=\\))"
+				},
+				{
+					"name": "comment.block.source.url.dico",
+					"match": "(?<=\\()https?://[^\\s]+(?=\\))"
 				}
 			]
 		},
@@ -120,48 +135,6 @@
 					"name": "support.function.dico",
 					"match": "<[^\\>]+>"
 				}
-			]
-		},
-		"styles": {
-			"patterns": [
-				{"name": "comment.line.dico", "match": "\\bCOM_LINE\\b"},
-				{"name": "comment.block", "match": "\\bCOM_BLOCK\\b"},
-				{"name": "constant.numeric", "match": "\\bCONST_NUM\\b"},
-				{"name": "constant.character.escape", "match": "\\bCONST_ESC\\b"},
-				{"name": "constant.language", "match": "\\bCONST_LANG\\b"},
-				{"name": "entity.name.class", "match": "\\bCLASS\\b"},
-				{"name": "entity.name.function", "match": "\\bFUNC\\b"},
-				{"name": "entity.name.method", "match": "\\bMETH\\b"},
-				{"name": "entity.name.section", "match": "\\bSEC\\b"},
-				{"name": "entity.name.selector", "match": "\\bSEL\\b"},
-				{"name": "entity.name.tag", "match": "\\bTAG\\b"},
-				{"name": "entity.name.type", "match": "\\bTYPE\\b"},
-				{"name": "invalid.deprecated", "match": "\\bDEPR\\b"},
-				{"name": "invalid.illegal", "match": "\\bILL\\b"},
-				{"name": "keyword.control", "match": "\\bCTRL\\b"},
-				{"name": "keyword.control.less", "match": "\\bLESS\\b"},
-				{"name": "markup.bold", "match": "\\bBOLD\\b"},
-				{"name": "markup.changed", "match": "\\bCHANGED\\b"},
-				{"name": "markup.deleted", "match": "\\bDEL\\b"},
-				{"name": "markup.heading", "match": "\\bHEAD\\b"},
-				{"name": "markup.inline.raw", "match": "\\bRAW\\b"},
-				{"name": "markup.inserted", "match": "\\bINS\\b"},
-				{"name": "markup.italic", "match": "\\bITAL\\b"},
-				{"name": "markup.list.numbered", "match": "\\bLIST_NUM\\b"},
-				{"name": "markup.list.unnumbered", "match": "\\bLIST_BULL\\b"},
-				{"name": "storage.modifier", "match": "\\bMOD\\b"},
-				{"name": "storage.type", "match": "\\bSTOR_TYPE\\b"},
-				{"name": "string.quoted", "match": "\\bQUOTED\\b"},
-				{"name": "string.unquoted", "match": "\\bUNQUOTED\\b"},
-				{"name": "string.regexp", "match": "\\bREGEX\\b"},
-				{"name": "support.class", "match": "\\bSUPP_CLASS\\b"},
-				{"name": "support.constant", "match": "\\bSUPP_CONST\\b"},
-				{"name": "support.function", "match": "\\bSUPP_FUNC\\b"},
-				{"name": "support.type", "match": "\\bSUPP_TYPE\\b"},
-				{"name": "support.variable", "match": "\\bSUPP_VAR\\b"},
-				{"name": "variable.language", "match": "\\bVAR_LANG\\b"},
-				{"name": "variable.name", "match": "\\bVAR_NAME\\b"},
-				{"name": "variable.parameter", "match": "\\bVAR_PARAM\\b"}
 			]
 		}
 	},
