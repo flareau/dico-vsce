@@ -6,6 +6,7 @@
 		{"include": "#keywords"},
 		{"include": "#sections"},
 		{"include": "#suffixes"},
+		{"include": "#ipa"},
 		{"include": "#posgramm"},
 		{"include": "#examples"},
 		{"include": "#sources"},
@@ -46,15 +47,11 @@
 		"sections": {
 			"patterns": [
 				{
-					"name": "markup.heading.1.headword.dico",
-					"match": "^\\w+\\s*/[\\w\\.~]+/\\s*$"
-				},
-				{
-					"name": "markup.heading.2.lex.dico",
+					"name": "markup.heading.1.lex.dico",
 					"match": "^\\s*\\d+\\."
 				},
 				{
-					"name": "markup.heading.3.section.dico",
+					"name": "markup.heading.2.section.dico",
 					"match": "^\\s*(DEF|SEM|TR|FL|EX|REM)\\b"
 				}
 			]
@@ -62,16 +59,20 @@
 		"suffixes": {
 			"patterns": [
 				{
-					"name": "storage.modifier.vocpos.dico",
-					"match": "(?<=\\w)_(V|N|Adj|Adv|Prép|Pro|Dét)"
-				},
-				{
 					"name": "storage.modifier.vocnum.dico",
 					"match": "(?<=\\w)_\\d+\\b"
 				},
 				{
 					"name": "storage.modifier.lexnum.dico",
 					"match": "(?<=\\w)#\\d+\\b"
+				}
+			]
+		},
+		"ipa": {
+			"patterns": [
+				{
+					"name": "string.regexp.ipa.dico",
+					"match": "(?<=^[\\w\\-\\']+)\\s+/[A-Za-z0-9:@~]+/\\s*$"
 				}
 			]
 		},

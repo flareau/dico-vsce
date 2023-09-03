@@ -4,6 +4,7 @@
 
 - Initial release
 
+
 ## 0.0.2
 
 - Added list of lexical functions
@@ -11,3 +12,9 @@
 - Variables for actants: X, Y, Z, A, B, C
 - Added grammemes for N and V
 - Headword in bold
+
+
+## 0.0.3
+
+ - Validate X-SAMPA strings
+ - Headword treated normally
