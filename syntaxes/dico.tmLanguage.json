@@ -6,7 +6,7 @@
 		{"include": "#keywords"},
 		{"include": "#sections"},
 		{"include": "#suffixes"},
-		{"include": "#ipa"},
+		{"include": "#headword"},
 		{"include": "#posgramm"},
 		{"include": "#examples"},
 		{"include": "#sources"},
@@ -35,8 +35,8 @@
 					"match": "(&|\\+)"
 				},
 				{
-					"name": "constant.character.self.dico",
-					"match": "~"
+					"name": "keyword.control.dico",
+					"match": "(?<=\\W)~(?=\\W)"
 				},
 				{
 					"name": "keyword.control.dico",
@@ -63,16 +63,24 @@
 					"match": "(?<=\\w)_\\d+\\b"
 				},
 				{
+					"name": "storage.modifier.pos.dico",
+					"match": "(?<=\\w)_(N|V|Adj|Adv|Prép|Pro|Dét)(?=_|\\b)"
+				},
+				{
 					"name": "storage.modifier.lexnum.dico",
-					"match": "(?<=\\w)#\\d+\\b"
+					"match": "(?<=\\w|~)#\\d+\\b"
+				},
+				{
+					"name": "support.function.component.dico",
+					"match": "(?<=\\w)\\^\\w+\\b"
 				}
 			]
 		},
-		"ipa": {
+		"headword": {
 			"patterns": [
 				{
-					"name": "string.regexp.ipa.dico",
-					"match": "(?<=^[\\w\\-\\']+)\\s+/[A-Za-z0-9:@~]+/\\s*$"
+					"name": "string.regexp.headword.dico",
+					"match": "^\\w[\\w\\-\\'\\s]*\\s+/[A-Za-z0-9:@~]+/\\s*$"
 				}
 			]
 		},
@@ -80,19 +88,23 @@
 			"patterns": [
 				{
 					"name": "entity.name.type.pos.dico",
-					"match": "\\b(N|V|Adj|Adv|Prép|Pro|Dét)\\b"
-				},
-				{
-					"name": "entity.name.type.tense.dico",
-					"match": "(?<=\\bV)\\.(ind|subj|inf|pp|pprés)\\b"
+					"match": "\\b(N|V|Adj|Adv|Poss|Pro|Dét)\\b"
 				},
 				{
 					"name": "entity.name.type.definiteness.dico",
-					"match": "(?<=\\bN)\\.(déf|indéf|ø)\\b"
+					"match": "(?<=\\bN|~)\\.(déf|indéf|ø)\\b"
 				},
 				{
 					"name": "entity.name.type.number.dico",
-					"match": "(?<=\\bN(\\.déf|\\.indéf|\\.ø)?)\\.(sg|pl)\\b"
+					"match": "(?<=\\b(N|~)(\\.déf|\\.indéf|\\.ø)?)\\.(sg|pl)\\b"
+				},
+				{
+					"name": "entity.name.type.tense.dico",
+					"match": "(?<=\\bV|~)\\.(ind|subj|inf|pp|pprés)\\b"
+				},
+				{
+					"name": "entity.name.type.tense.dico",
+					"match": "(?<=\\bPro)\\.(nom|acc|dat)\\b"
 				}
 			]
 		},
@@ -157,11 +169,11 @@
 		"functions": {
 			"patterns": [
 				{
-					"name": "support.function.dico",
+					"name": "support.function.lf.dico",
 					"match": "\\b(Q?(A\\d|Able\\d|Adv\\d|Anti|Bon\\d?|Cap|Caus\\d|Claus|Cont|Contr|Conv\\d{2,}|Copul|Degrad|Epit|Equip|Excess|Fact\\d+|Figur|Fin|Func\\d+|Gener|Imper|Imperf|Incep|Instr|Involv\\d+|Labor\\d{2,}|Labreal\\d{2,}|Liqu\\d?|Locab|Locad|Locin|Magn\\d?|Manif|Minus|Mult\\d?|Non|Obstr|Oper\\d+|Perf|Perm\\d+?|Plus|Pred|Prepar|Propt\\d|Prox|Qual\\d|Real\\d+|Redun|Result\\d|S\\d|Sing|Sinstr|Sloc|Smed|Smod|Son|Sres|Stop|Sympt\\d{3}|Syn|V0|Ver))+\\b"
 				},
 				{
-					"name": "support.function.dico",
+					"name": "support.function.nstdlf.dico",
 					"match": "\\{[^\\}]+\\}"
 				}
 			]
