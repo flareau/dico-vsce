@@ -22,3 +22,6 @@
 
 ## 1.0.0
 - Basic functionality
+
+## 1.0.1
+- Actants: X Y Z I J K
