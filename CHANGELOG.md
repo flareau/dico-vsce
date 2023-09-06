@@ -19,3 +19,6 @@
 - Support for Pro (nom/acc/dat)
 - Support for specific components in LFs
 - Fixed posgramm
+
+## 1.0.0
+- Basic functionality
