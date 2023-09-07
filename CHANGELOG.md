@@ -25,3 +25,6 @@
 
 ## 1.0.1
 - Actants: X Y Z I J K
+
+## 1.0.2
+- Fixed predicate arguments that were not captured in some contexts
