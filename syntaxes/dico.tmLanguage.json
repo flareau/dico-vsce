@@ -118,13 +118,13 @@
 		},
 		"parameters": {
 			"name": "markup.italic.source.dico",
-			"begin": "(?<=\\w\\()",
-			"end": "(?=\\))",
+			"begin": "(?<=\\w)\\(",
+			"end": "\\)",
 			"patterns": [
 				{"include": "#actants"},
 				{
 					"name": "variable.parameter.argument.dico",
-					"match": "\\b\\w+\\b"
+					"match": "(?<=(\\s|\\(|,))\\w+(?=\\b)"
 				}
 			]
 		},
