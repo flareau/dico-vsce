@@ -112,7 +112,7 @@
 			"patterns": [
 				{
 					"name": "markup.bold.actant.dico",
-					"match": "(?<!/\\s*)\\b(X|Y|Z|I|J|K)[1-9]?\\b(?!\\s*/)"
+					"match": "\\b(X|Y|Z|A|B|C)[1-9]?\\b(?!['\\-])"
 				}
 			]
 		},

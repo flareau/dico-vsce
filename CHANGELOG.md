@@ -28,3 +28,6 @@
 
 ## 1.0.2
 - Fixed predicate arguments that were not captured in some contexts
+
+## 1.0.1
+- Actants: X, Y, Z, A, B, C (not followed by ' or -)
